@@ -73,4 +73,4 @@ sed -i "s/ZSH_THEME.*/ZSH_THEME=\"zhann\"/" .zshrc
 sudo chsh -s /bin/zsh ec2-user
 
 ####### Done #######
-echo "Done! Enjoy your new system."
+echo "Done! Please logout and login to enjoy your new system."
