@@ -59,6 +59,10 @@ run '~/.tmux/plugins/tpm/tpm'
 EOF
 tmux source .tmux.conf
 
+#########   FZF   ##############
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 ####### ZSH + Oh my ZSH #########
 # sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
