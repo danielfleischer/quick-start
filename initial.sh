@@ -59,9 +59,7 @@ run '~/.tmux/plugins/tpm/tpm'
 EOF
 tmux source .tmux.conf
 
-#########   FZF   ##############
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+
 
 ####### ZSH + Oh my ZSH #########
 # sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -75,6 +73,10 @@ sed -i "s/  git/  sudo git autojump docker tmux common-aliases pip python yum zs
 sed -i "s/ZSH_THEME.*/ZSH_THEME=\"zhann\"/" .zshrc 
 
 sudo chsh -s /bin/zsh ec2-user
+
+#########   FZF   ##############
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 ####### Done #######
 echo "Done! Please logout and login to enjoy your new system."
