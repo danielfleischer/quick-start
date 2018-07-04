@@ -13,7 +13,7 @@ echo "Package manager is" $installer
 ####### Download packages #########
 sudo $installer -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo $installer -y update
-sudo $installer -y install python36 htop git gcc gcc-c++ autoconf automake libevent libevent-devel ncurses-devel zsh autojump-zsh
+sudo $installer -y install python36 htop git gcc gcc-c++ autoconf automake libevent libevent-devel ncurses-devel zsh autojump-zsh util-linux-user
 
 ####### Python3 packages #########
 pip='pip-3.6'
