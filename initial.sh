@@ -13,11 +13,13 @@ echo "Package manager is" $installer
 ####### Download packages #########
 sudo $installer -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo $installer -y update
-sudo $installer -y install python36 htop git gcc gcc-c++ autoconf automake libevent libevent-devel ncurses-devel zsh autojump-zsh util-linux-user
+sudo $installer -y install python37 htop git gcc gcc-c++ autoconf\
+                           automake libevent libevent-devel ncurses-devel\
+			   zsh autojump-zsh util-linux-user fzf
 
 ####### Python3 packages #########
-pip='pip-3.6'
-sudo $pip install -U scipy numpy jupyter pandas tensorflow keras sklearn gensim boto3 wheel pip
+pip='pip-3.7'
+sudo $pip install -U scipy numpy jupyter pandas tensorflow keras sklearn gensim boto3 wheel pip torch jupyterlab dvc
 
 ####### Modern Tmux with package management #########
 git clone https://github.com/tmux/tmux.git
@@ -62,9 +64,7 @@ tmux source .tmux.conf
 
 
 ####### ZSH + Oh my ZSH #########
-# sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -73,10 +73,6 @@ sed -i "s/  git/  sudo git autojump docker tmux common-aliases pip python yum zs
 sed -i "s/ZSH_THEME.*/ZSH_THEME=\"zhann\"/" .zshrc 
 
 sudo chsh -s /bin/zsh ec2-user
-
-#########   FZF   ##############
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
 
 ####### Done #######
 echo "Done! Please logout and login to enjoy your new system."
