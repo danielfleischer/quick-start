@@ -13,7 +13,7 @@ echo "Package manager is" $installer
 ####### Download packages #########
 sudo $installer -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 sudo $installer -y update
-sudo $installer -y install python37 htop git gcc gcc-c++ autoconf\
+sudo $installer -y install python3 python3-devel htop git gcc gcc-c++ autoconf\
                            automake libevent libevent-devel ncurses-devel\
 			   zsh autojump-zsh util-linux-user fzf
 
