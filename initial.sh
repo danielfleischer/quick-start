@@ -11,9 +11,10 @@ fi
 echo "Package manager is" $installer
 
 ####### Download packages #########
-sudo $installer -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo $installer -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum-config-manager --enable epel
 sudo $installer -y update
-sudo $installer -y install python3 python3-devel htop git gcc gcc-c++ autoconf\
+sudo $installer -y install python3 python3-devel bison autojump-zsh htop git gcc gcc-c++ autoconf\
                            automake libevent libevent-devel ncurses-devel\
 			   zsh autojump-zsh util-linux-user fzf
 
@@ -69,7 +70,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-sed -i "s/  git/  sudo git autojump docker tmux common-aliases pip python yum zsh-autosuggestions zsh-syntax-highlighting/" .zshrc 
+sed -i "s/(git)/(sudo git autojump docker tmux common-aliases pip python yum zsh-autosuggestions zsh-syntax-highlighting)/" .zshrc 
 sed -i "s/ZSH_THEME.*/ZSH_THEME=\"zhann\"/" .zshrc 
 
 sudo chsh -s /bin/zsh ec2-user
