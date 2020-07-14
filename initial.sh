@@ -20,7 +20,9 @@ sudo $installer -y install python3 python3-devel bison autojump-zsh htop git gcc
 
 ####### Python3 packages #########
 pip='pip-3.7'
-sudo $pip install -U scipy numpy jupyter pandas tensorflow keras sklearn gensim boto3 wheel pip torch jupyterlab dvc
+$pip install -U --user scipy numpy jupyter pandas \
+		       tensorflow keras sklearn gensim \
+		       boto3 wheel pip torch jupyterlab dvc
 
 ####### Modern Tmux with package management #########
 git clone https://github.com/tmux/tmux.git
@@ -63,7 +65,6 @@ EOF
 tmux source .tmux.conf
 
 
-
 ####### ZSH + Oh my ZSH #########
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -73,6 +74,12 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sed -i "s/(git)/(sudo git autojump docker tmux common-aliases pip python yum zsh-autosuggestions zsh-syntax-highlighting)/" .zshrc 
 sed -i "s/ZSH_THEME.*/ZSH_THEME=\"zhann\"/" .zshrc 
 
+############# FZF  ##############
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install -y
+
+
+############ Change default shell ########
 sudo chsh -s /bin/zsh ec2-user
 
 ####### Done #######
