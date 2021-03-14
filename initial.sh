@@ -19,7 +19,7 @@ sudo $installer -y install python3 python3-devel bison autojump-zsh htop git gcc
 			   zsh autojump-zsh util-linux-user fzf
 
 ####### Python3 packages #########
-pip='pip-3.7'
+pip='pip-3.8'
 $pip install -U --user scipy numpy jupyter pandas \
 		       tensorflow keras sklearn gensim \
 		       boto3 wheel pip torch jupyterlab dvc
